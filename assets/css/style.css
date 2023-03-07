@@ -1,0 +1,256 @@
+:root {
+  --primary-color: #19474c;
+  --text-color: #333;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+body {
+  background: linear-gradient(180deg, #c7a6da 25%, #ffa3c5 100%);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.player {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.player .icon-pause {
+  display: none;
+}
+
+.player.playing .icon-pause {
+  display: inline-block;
+}
+
+.player.playing .icon-play {
+  display: none;
+}
+
+.dashboard {
+  padding: 16px 16px 14px;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 480px;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: 8px;
+  z-index: 100;
+  user-select: none;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+header h4 {
+  color: black;
+  font-size: 12px;
+}
+
+header h2 {
+  color: transparent;
+  background: linear-gradient(to right, #04a82d, #3a86ff);
+  font-size: 20px;
+  -webkit-background-clip: text;
+}
+
+/* CD */
+.cd {
+  display: flex;
+  margin: auto;
+  width: 200px;
+}
+
+.cd-thumb {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  background-size: cover;
+  margin: auto;
+}
+
+/* CONTROL */
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 18px 0 8px 0;
+}
+
+.control .btn {
+  color: #666;
+  padding: 18px;
+  font-size: 18px;
+}
+
+.control .btn.active {
+  color: red;
+}
+
+.control .btn-toggle-play {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+}
+
+.progress {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 9px;
+  background: linear-gradient(90deg, #c7a6da 0%, #ffa3c5 75%);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 5px;
+}
+
+.progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  clip-path: circle();
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+/* PLAYLIST */
+.playlist {
+  margin-top: 408px;
+  padding: 12px;
+  user-select: none;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  background-color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.song.active {
+  background-color: var(--primary-color);
+}
+
+.song:active {
+  opacity: 0.8;
+}
+
+.song.active .option,
+.song.active .author,
+.song.active .title {
+  color: #fff;
+}
+
+.song .thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: 0 8px;
+}
+
+.song .body {
+  flex: 1;
+  padding: 0 16px;
+}
+
+.song .title {
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.song .author {
+  font-size: 12px;
+  color: #999;
+}
+
+.song .option {
+  padding: 16px 8px;
+  color: #999;
+  font-size: 18px;
+  position: relative;
+  overflow: initial;
+  width: 24%;
+  text-align: end;
+}
+
+.wave-song {
+  display: none;
+  position: absolute;
+  right: 100%;
+  transform: translateY(-30%);
+}
+
+.wave-song.active {
+  display: block;
+}
+
+.wave-song span {
+  position: absolute;
+  bottom: -18px;
+  display: inline-block;
+  height: 5px;
+  width: 4px;
+  right: 10%;
+  background: linear-gradient(180deg, #c7a6da 25%, #ffa3c5 100%);
+  animation: animate 0.4s linear infinite;
+}
+
+.wave-song span:nth-child(1) {
+  -webkit-animation-delay: 0.1s;
+  left: calc(44px - 20px);
+}
+.wave-song span:nth-child(2) {
+  -webkit-animation-delay: 0.2s;
+  left: calc(38px - 20px);
+}
+.wave-song span:nth-child(3) {
+  -webkit-animation-delay: 0.1s;
+  left: calc(32px - 20px);
+}
+.wave-song span:nth-child(4) {
+  -webkit-animation-delay: 0.3s;
+  left: calc(26px - 20px);
+}
+.wave-song span:nth-child(5) {
+  -webkit-animation-delay: 0.6s;
+  left: calc(20px - 20px);
+}
+@keyframes animate {
+  from {
+    height: 5px;
+  }
+  to {
+    height: 20px;
+  }
+}
+
+.btn {
+  cursor: pointer;
+}
